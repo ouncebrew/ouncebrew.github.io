@@ -13,7 +13,8 @@
             "file": "Switch_90DNS_tester.nro",
             "direct_url": "https://github.com/souldbminerr/90DNS-Tester/releases/latest/download",
             "license": "GPLv3",
-            "changelog": "1.0.5-Ounce release."
+            "changelog": "1.0.5-Ounce release.",
+            "UpdateDateTime": "22/11/2026 21:06"
         },
         {
             "name": "force-internal-speaker",
@@ -27,7 +28,8 @@
             "file": "switch_internal_speakers_nro.nro",
             "direct_url": "https://github.com/souldbminerr/switch_internal_speakers_nro/releases/latest/download",
             "license": "",
-            "changelog": "v1.0.0-ounce release."
+            "changelog": "v1.0.0-ounce release.",
+            "UpdateDateTime": "22/11/2026 21:23"
         },
         {
             "name": "bad-apple-switch",
@@ -41,7 +43,8 @@
             "file": "bad-apple-switch.nro",
             "direct_url": "https://github.com/souldbminerr/bad-apple-switch/releases/latest/download",
             "license": "GPLv2",
-            "changelog": "Ounce release."
+            "changelog": "Ounce release.",
+            "UpdateDateTime": "22/11/2026 21:21"
         },
         {
             "name": "sdbench-ounce",
@@ -55,7 +58,8 @@
             "file": "sdbench-ounce.nro",
             "direct_url": "https://github.com/Horizon-OC/sdbench/releases/latest/download",
             "license": "GPLv2",
-            "changelog": "1.1.0: Improve benchmark relability and support both NX and OUNCE targets (S1/S2)\n1.0.0: Initial release"
+            "changelog": "1.1.0: Improve benchmark relability and support both NX and OUNCE targets (S1/S2)\n1.0.0: Initial release",
+            "UpdateDateTime": "22/11/2026 21:22"
         }
     ]
 }

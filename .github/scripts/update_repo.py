@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import datetime
 import io
 import json
 import sys
@@ -42,6 +43,8 @@ def main() -> int:
     packages = data.get("packages", [])
     changed = False
     icon_entries = {}
+    # Versions before this run, to detect releases (version bumps).
+    data_versions = {p.get("name"): p.get("version") for p in packages}
 
     for pkg in packages:
         direct_url = (pkg.get("direct_url") or pkg.get("url") or "").rstrip("/")
@@ -67,6 +70,17 @@ def main() -> int:
             if ext and icon_data:
                 icon_entries[f"{name}/icon{ext}"] = icon_data
                 print(f"[icon] {name}/icon{ext}")
+
+    # Stamp UpdateDateTime ("DD/MM/YYYY HH:MM", 24hr UTC) when the version
+    # changed or no stamp exists yet.
+    now = datetime.datetime.now(datetime.timezone.utc).strftime("%d/%m/%Y %H:%M")
+    for pkg in packages:
+        if not pkg.get("file"):
+            continue
+        if pkg.get("version") != data_versions.get(pkg.get("name")) or not pkg.get("UpdateDateTime"):
+            pkg["UpdateDateTime"] = now
+            print(f"[update] {pkg.get('name', '?')}.UpdateDateTime")
+            changed = True
 
     if changed:
         REPO_JSON.write_text(json.dumps(data, indent=4, ensure_ascii=False) + "\n", encoding="utf-8")
