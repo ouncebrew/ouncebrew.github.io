@@ -55,7 +55,7 @@
             "details": "SDBench is a simple SD Card benchmark tool. It supports both Switch 1 and Switch 2, and can be used to determine SD card health and overall speed",
             "category": "Tools",
             "url": "https://github.com/Horizon-OC/sdbench",
-            "file": "sdbench-ounce.nro",
+            "file": "sdbench_ounce.nro",
             "direct_url": "https://github.com/Horizon-OC/sdbench/releases/latest/download",
             "license": "GPLv2",
             "changelog": "1.1.0: Improve benchmark relability and support both NX and OUNCE targets (S1/S2)\n1.0.0: Initial release",
