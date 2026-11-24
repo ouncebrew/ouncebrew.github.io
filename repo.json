@@ -96,7 +96,9 @@
             "path": "sdmc:/kaihen/lib/",
             "license": "ISC",
             "changelog": "0.5.0: Initial release.",
-            "UpdateDateTime": "24/11/2026 12:00"
+            "UpdateDateTime": "24/11/2026 12:00",
+            "requiredDeletion": [],
+            "userDeletion": []
         }
     ]
 }
