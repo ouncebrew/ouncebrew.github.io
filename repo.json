@@ -97,6 +97,29 @@
             "license": "ISC",
             "changelog": "0.5.0: Initial release.",
             "UpdateDateTime": "24/11/2026 12:00"
+        },
+        {
+            "name": "ouncevk",
+            "title": "Mesa3D (OunceVK)",
+            "author": "ouncebrew and Mesa3D",
+            "version": "2026.11.23",
+            "description": "Mesa3D for switch 2.",
+            "details": "Mesa3D/OunceVK is an open source Vulkan/OpenGL Driver for Nintendo Switch 2 consoles, with many hardware accellerations from Turing/Ampere/Ada Lovelace supported for the Switch 2's GA10F GPU",
+            "category": "Libraries",
+            "url": "https://github.com/ouncebrew/ouncevk/",
+            "file": "sdout.zip",
+            "direct_url": "https://github.com/ouncebrew/ouncevk/releases/latest/download",
+            "license": "MIT",
+            "changelog": "2026.11.23: Add support for dynamic linking.",
+            "UpdateDateTime": "23/11/2026 12:00",
+            "requiredDeletion": [
+                "sdmc:/kaihen/lib/libEGL.so.1",
+                "sdmc:/kaihen/lib/libGL.so.1",
+                "sdmc:/kaihen/lib/libGLESv2.so.2",
+                "sdmc:/kaihen/lib/libouncevk-gl.so.1",
+                "sdmc:/kaihen/lib/libouncevk.so.1",
+                "sdmc:/kaihen/lib/libvulkan.so.1"
+            ]
         }
     ]
 }
