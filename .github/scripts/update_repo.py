@@ -108,6 +108,18 @@ def main() -> int:
                                 print(f"[update] {name}.{field}")
                                 pkg[field] = value
                                 changed = True
+                    deps = remote.get("dependencies")
+                    if isinstance(deps, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in deps.items()):
+                        if deps != pkg.get("dependencies"):
+                            print(f"[update] {name}.dependencies")
+                            pkg["dependencies"] = deps
+                            changed = True
+                    darr = remote.get("depends")
+                    if isinstance(darr, list) and all(isinstance(x, str) for x in darr):
+                        if darr != pkg.get("depends"):
+                            print(f"[update] {name}.depends")
+                            pkg["depends"] = darr
+                            changed = True
                     new_ver = remote.get("version")
                     if isinstance(new_ver, str) and new_ver != pkg.get("version"):
                         if versions_equal(new_ver, pkg.get("version") or ""):
