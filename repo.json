@@ -68,7 +68,7 @@
             "version": "2026.11.05",
             "description": "TLS Root Certificates for HTTPS",
             "details": "Provides cacert.pem for HTTPS/TLS.",
-            "category": "Tools",
+            "category": "Miscellaneous",
             "url": "https://curl.se/docs/caextract.html",
             "file": "cacert.pem",
             "direct_url": "https://curl.se/ca",
