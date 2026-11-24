@@ -121,7 +121,8 @@
                 "sdmc:/kaihen/lib/libouncevk-gl.so.1",
                 "sdmc:/kaihen/lib/libouncevk.so.1",
                 "sdmc:/kaihen/lib/libvulkan.so.1"
-            ]
+            ],
+            "userDeletion": []
         }
     ]
 }
