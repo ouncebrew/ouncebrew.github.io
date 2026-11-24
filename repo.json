@@ -60,6 +60,27 @@
             "license": "GPLv2",
             "changelog": "1.1.0: Improve benchmark relability and support both NX and OUNCE targets (S1/S2)\n1.0.0: Initial release",
             "UpdateDateTime": "22/11/2026 21:22"
+        },
+        {
+            "name": "cacert",
+            "title": "CA Certificate Bundle",
+            "author": "Mozilla",
+            "version": "2026.11.05",
+            "description": "TLS Root Certificates for HTTPS",
+            "details": "Provides cacert.pem for HTTPS/TLS.",
+            "category": "Tools",
+            "url": "https://curl.se/docs/caextract.html",
+            "file": "cacert.pem",
+            "direct_url": "https://curl.se/ca",
+            "path": "sdmc:/kaihen/lib/",
+            "license": "MPL-2.0",
+            "changelog": "2026.11.05: Mozilla CA store update (118 certificates).",
+            "UpdateDateTime": "05/11/2026 04:12",
+            "iconFile": "icon/tlsCert.jpg",
+            "versionSource": {
+                "url": "https://curl.se/docs/caextract.html",
+                "pattern": "cacert-(\\d{4})-(\\d{2})-(\\d{2})\\.pem"
+            }
         }
     ]
 }

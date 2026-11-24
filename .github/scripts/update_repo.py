@@ -2,6 +2,7 @@
 import datetime
 import io
 import json
+import re
 import sys
 import urllib.request
 import zipfile
@@ -151,10 +152,45 @@ def main() -> int:
                 print(f"[update] {name}.UpdateDateTime")
                 changed = True
 
+            # Externally-managed versions (e.g. upstream revision tables).
+            # Groups are joined with dots: "2026-11-05" -> "2026.11.05".
+            vs = pkg.get("versionSource")
+            if isinstance(vs, dict) and isinstance(vs.get("url"), str) and isinstance(vs.get("pattern"), str):
+                try:
+                    text = fetch_bytes(vs["url"]).decode("utf-8", "ignore")
+                    m = re.search(vs["pattern"], text)
+                    if m and m.groups():
+                        v = ".".join(m.groups())
+                        if _version_segments(v) is None:
+                            print(f"[skip] {name}: versionSource produced invalid version {v!r}")
+                        elif not versions_equal(v, pkg.get("version") or ""):
+                            print(f"[update] {name}.version ({v} from versionSource)")
+                            pkg["version"] = v
+                            changed = True
+                            pkg["UpdateDateTime"] = now
+                            print(f"[update] {name}.UpdateDateTime")
+                    else:
+                        print(f"[skip] {name}: versionSource pattern found nothing")
+                except Exception as e:
+                    print(f"[skip] {name}: versionSource ({e})")
+
             ext, icon_data = fetch_icon(direct_url)
             if ext and icon_data:
                 icon_entries[f"{name}/icon{ext}"] = icon_data
                 print(f"[icon] {name}/icon{ext}")
+
+            # Explicit repo-local icon wins over anything scraped.
+            icon_file = pkg.get("iconFile")
+            if isinstance(icon_file, str):
+                p = REPO_ROOT / icon_file
+                if p.is_file() and p.suffix.lower() in (".png", ".jpg", ".jpeg"):
+                    for k in [k for k in icon_entries if k.startswith(name + "/")]:
+                        del icon_entries[k]
+                    arc = f"{name}/icon{p.suffix.lower()}"
+                    icon_entries[arc] = p.read_bytes()
+                    print(f"[icon] {arc} (from {icon_file})")
+                else:
+                    print(f"[icon-skip] {name}: iconFile {icon_file!r} missing or bad extension")
 
     if changed:
         REPO_JSON.write_text(json.dumps(data, indent=4, ensure_ascii=False) + "\n", encoding="utf-8")
