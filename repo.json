@@ -81,6 +81,22 @@
                 "url": "https://curl.se/docs/caextract.html",
                 "pattern": "cacert-(\\d{4})-(\\d{2})-(\\d{2})\\.pem"
             }
+        },
+        {
+            "name": "drako3d",
+            "title": "drako3d",
+            "author": "ouncebrew",
+            "version": "0.5.0",
+            "description": "A homebrew low-level 3D graphics API for the Switch 2's Nvidia Tegra T239.",
+            "details": "drako3d is a (semi-)brand new homebrew low level 3D graphics API targetting the Nvidia Tegra T239 processor found inside the Nintendo Switch 2. It is based on deko3d.\n\ndrako3d provides the following features:\n\n- Low level and explicit API reminiscent of Vulkan: drako3d is modeled after popular low level concepts such as devices, queues, command buffers, and much more.\n- Low overhead and explicit resource management: drako3d lets developers take control of resource management, and make decisions that make most sense in each case. In addition, care was taken to avoid unnecessary dynamic memory allocations and other undesired behavior that can result in degraded application performance.\n- Control over command generation: drako3d grants developers the ability to manage and record command lists that can be submitted to the GPU, as well as the ability to maintain multiple parallel queues of command processing, each with its own internal (GPU-managed) state.\n- Ease of use and convenience: despite being a low level API, care was taken to avoid introducing arbitrary restrictions in the API (such as giant immutable state objects or overengineered abstractions) that do not correspond to how the hardware works. drako3d aims to expose every useful thing that the GPU can do, in the most straightforward way possible. Between pedanticness and programmer happiness, the latter was selected.\n- Compile-time resource management: drako3d provides and promotes a workflow involving the compilation and conversion of assets such as shaders or graphics at compile time, therefore avoiding runtime resource waste.\n- Debug version of the library, providing parameter and state checking, as well as warning/error messages. The release version of the library omits validation checks and is compiled with extra optimization flags for maximum speed.\n- Ability to use a plain C version of the API, as well as a rich C++ wrapper inspired by Vulkan-Hpp.\n\nIn conclusion, drako3d is the homebrew answer to Nintendo and Nvidia's proprietary NVN2 graphics API. The source code of drako3d is intended to also serve as a public example of how to use an Nvidia GPU, as well as aiming to be an accurate-as-possible public repository of register definitions and other hardware information.",
+            "category": "Libraries",
+            "url": "https://github.com/ouncebrew/drako3d/",
+            "file": "libdrako3d.so.1",
+            "direct_url": "https://github.com/ouncebrew/drako3d/releases/latest/download",
+            "path": "sdmc:/kaihen/lib/",
+            "license": "ISC",
+            "changelog": "0.5.0: Initial release.",
+            "UpdateDateTime": "24/11/2026 12:00"
         }
     ]
 }
